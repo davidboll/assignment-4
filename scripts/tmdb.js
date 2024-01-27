@@ -12,19 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
   searchButton.addEventListener("click", fetchMovies);
 });
 
+const API_KEY = "c0c5c92325ed2fd5252ec2cc1f91332a";
+
 const fetchCategoryMovies = (category) => {
-  const apiKey = "c0c5c92325ed2fd5252ec2cc1f91332a";
   let url;
 
   switch (category) {
     case "top_rated":
-      url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=sv-SE&page=1`;
+      url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=sv-SE&page=1`;
       break;
     case "upcoming":
-      url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=sv-SE&page=1`;
+      url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=sv-SE&page=1`;
       break;
     case "now_playing":
-      url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=sv-SE&page=1`;
+      url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=sv-SE&page=1`;
       break;
   }
 
@@ -34,7 +35,7 @@ const fetchCategoryMovies = (category) => {
       .then((data) => {
         const movies = data.results;
         return Promise.all(
-          movies.map((movie) => fetchMovieDetails(apiKey, movie))
+          movies.map((movie) => fetchMovieDetails(API_KEY, movie))
         );
       })
       .then((movies) => displayMovies(movies))
@@ -43,9 +44,8 @@ const fetchCategoryMovies = (category) => {
 };
 
 const fetchMovies = () => {
-  const apiKey = "c0c5c92325ed2fd5252ec2cc1f91332a";
   const movieQuery = document.getElementById("movie-search-input").value;
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=sv-SE&query=${encodeURIComponent(
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=sv-SE&query=${encodeURIComponent(
     movieQuery
   )}`;
 
@@ -63,7 +63,7 @@ const fetchMovies = () => {
       }
       const movies = data.results;
       return Promise.all(
-        movies.map((movie) => fetchMovieDetails(apiKey, movie))
+        movies.map((movie) => fetchMovieDetails(API_KEY, movie))
       );
     })
     .then((movies) => movies && displayMovies(movies))
