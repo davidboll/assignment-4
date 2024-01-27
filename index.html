@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popcorn 4 all</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./scripts/tmdb.js" defer></script>
+  </head>
+  <body>
+    <header class="hero-header">
+      <h1>Popcorn 4 all</h1>
+    </header>
+    <div id="movie-container">
+      <h1>Wanna see a Movie?</h1>
+      <div class="search-container">
+        <input
+          type="text"
+          id="movie-search-input"
+          class="search-input"
+          placeholder="Search movie" />
+        <button id="search-button" class="search-button">Search</button>
+      </div>
+
+      <div id="category-buttons">
+        <button id="top-100-button">Best of the best</button>
+        <button id="upcoming-movies-button">Upcoming</button>
+        <button id="now-playing-button">Hot right now</button>
+      </div>
+      <div id="movies"></div>
+    </div>
+  </body>
+</html>
