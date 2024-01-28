@@ -101,7 +101,7 @@ body {
   border-radius: 5px;
   box-sizing: border-box;
   padding: 15px;
-  width: calc(25% - 20px);
+  width: calc(100% - 20px);
 }
 
 .movie h3 {
@@ -114,6 +114,7 @@ body {
   height: auto;
   margin-bottom: 10px;
   max-width: 100%;
+  min-width: 100%;
 }
 
 .movie p {
@@ -140,7 +141,7 @@ body {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .search-input,
   .search-button {
     display: block;
@@ -149,6 +150,6 @@ body {
   }
 
   .movie {
-    width: calc(50% - 20px);
+    width: calc(25% - 20px);
   }
 }
